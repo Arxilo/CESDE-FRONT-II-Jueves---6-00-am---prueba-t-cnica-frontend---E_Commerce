@@ -1,4 +1,4 @@
-function ProductCard({producto , onEliminar}) {
+function ProductCard({producto , onEliminar , onEditar}) {
     return(
         <div>
             <ul>
@@ -10,7 +10,7 @@ function ProductCard({producto , onEliminar}) {
                 <li>
                     imagen: <img src={producto.imagenURL} alt="No existe esa imagen" />
                 </li>
-                <button>editar</button>
+                <button onClick={ () => onEditar(producto)}>editar</button>
                 <button onClick={ () => onEliminar(producto.id)}>Eliminar</button>
             </ul>
         </div>

@@ -8,6 +8,7 @@ import { confirmarEliminacion } from "../../../shared/utils/alerts";
 function ProductosPage() {
 
     const [productos, setProductos] = useState([]);
+    const [productoEditar , setProductoEditar] = useState(null)
     
     async function cargarProductos() {
         const data = await getProductos()
@@ -33,14 +34,14 @@ function ProductosPage() {
             <h1>=================</h1>
 
             <h2>lista de productos</h2>
-            <ProductList productos={productos} onEliminar={handleEliminar}/>
+            <ProductList productos={productos} onEliminar={handleEliminar} onEditar={setProductoEditar}/>
             <br /><br />
 
             <h1>=================</h1>
 
             <h2>Crear Producto</h2>
             <br />
-            <ProductForm onProductoCreado={cargarProductos}/>
+            <ProductForm onProductoCreado={cargarProductos} productoEditar = {productoEditar} setProductoEditar={setProductoEditar}/>
         </div>
     )
 }
