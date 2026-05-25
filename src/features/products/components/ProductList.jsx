@@ -1,12 +1,15 @@
+import ProductCard from "./ProductCard";
+
+
 function ProductList({productos}) {
     return(
-        <ul>
+        <div>
             {
                 productos.map((producto) => (
-                    <li key={producto.id}> {producto.nombre} </li>
+                    <ProductCard key={producto.id} producto={producto} />
                 ))
             }
-        </ul>
+        </div>
     )
 }
 
