@@ -19,3 +19,13 @@ export function mostrarError(mensaje) {
         icon: "error"
     })
 }
+
+export function mostrarExito(mensaje) {
+    Swal.fire({
+        title: "Éxito",
+        text: mensaje,
+        icon: "success",
+        timer: 1500,
+        showConfirmButton: false
+    })
+}

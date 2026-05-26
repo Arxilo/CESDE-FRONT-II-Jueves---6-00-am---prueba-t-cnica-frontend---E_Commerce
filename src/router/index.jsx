@@ -5,11 +5,11 @@ import ProtectedRoute from "../features/auth/components/ProtectedRoute";
 import ProductosPage from "../features/products/pages/ProductosPage";
 
 const router = createBrowserRouter([
+    { path: "/login", element: <LoginPage /> },
     {
         path: "/",
         element: <MainLayout />,
         children: [
-            { path: "/login", element: <LoginPage /> },
             {
                 element: <ProtectedRoute />,
                 children: [
