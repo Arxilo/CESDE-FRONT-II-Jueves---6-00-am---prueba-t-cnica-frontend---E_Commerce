@@ -8,6 +8,7 @@ function useLogin() {
     const [usuario, setUsuario] = useState("")
     const [password, setPassword] = useState("")
     const [cargando, setCargando] = useState(false)
+    const [mostrarPassword, setMostrarPassword] = useState(false)
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -27,7 +28,7 @@ function useLogin() {
         }, 1500)
     }
 
-    return { usuario, setUsuario, password, setPassword, handleSubmit, cargando }
+    return { usuario, setUsuario, password, setPassword, handleSubmit, cargando, mostrarPassword, setMostrarPassword }
 }
 
 export default useLogin
