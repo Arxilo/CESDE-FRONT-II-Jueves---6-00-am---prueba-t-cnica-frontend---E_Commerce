@@ -1,21 +1,8 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import login from "../services/authService";
-
+import useLogin from "../hooks/useLogin";
 
 function LoginPage() {
 
-    const navigate = useNavigate();
-    const [usuario, setUsuario] = useState("");
-    const [password, setPassword] = useState("");
-
-    function handleSubmit(e) {
-        e.preventDefault()
-        const resultado = login(usuario, password);
-        if (resultado) {
-            navigate("/productos");
-        }
-    }
+    const { usuario, setUsuario, password, setPassword, handleSubmit } = useLogin()
 
     return (
         <div>
@@ -27,12 +14,14 @@ function LoginPage() {
                     value={usuario}
                     onChange={(e) => setUsuario(e.target.value)}
                 />
+                <br />
                 <input
                     type="password"
                     placeholder="Contraseña"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
+                <br />
                 <button type="submit">Entrar</button>
             </form>
         </div>
