@@ -5,51 +5,45 @@ function ProductForm({ onProductoCreado, productoEditar, setProductoEditar }) {
     const { nombre, setNombre, precio, setPrecio, categoria, setCategoria, stock, setStock, imagenURL, setImagenURL, handleSubmit } = useProductForm({ productoEditar, setProductoEditar, onProductoCreado })
 
     return (
-        <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md mb-6">
+        <form onSubmit={handleSubmit} className="bg-white p-8 rounded-xl shadow-sm border border-gray-200 mb-8">
 
-            <h2 className="text-xl font-bold mb-4">{productoEditar ? "Editar Producto" : "Crear Producto"}</h2>
+            <h2 className="text-lg font-bold text-gray-800 mb-6">{productoEditar ? "Editar Producto" : "Crear Producto"}</h2>
 
-            <input
-                className="w-full p-2 border border-gray-300 rounded mb-4"
-                type="text"
-                placeholder="Nombre"
-                value={nombre}
-                onChange={(e) => setNombre(e.target.value)}
-            />
 
-            <input
-                className="w-full p-2 border border-gray-300 rounded mb-4"
-                type="number"
-                placeholder="Precio"
-                value={precio}
-                onChange={(e) => setPrecio(e.target.value)}
-            />
+            <div className="flex gap-4 mb-4">
 
-            <input
-                className="w-full p-2 border border-gray-300 rounded mb-4"
-                type="text"
-                placeholder="Categoría"
-                value={categoria}
-                onChange={(e) => setCategoria(e.target.value)}
-            />
+                <div className="flex-1">
+                    <label className="block text-sm text-gray-600 mb-1">Nombre</label>
+                    <input className="w-full p-2 border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-purple-400" type="text" placeholder="Camiseta básica" value={nombre} onChange={(e) => setNombre(e.target.value)} />
+                </div>
 
-            <input
-                className="w-full p-2 border border-gray-300 rounded mb-4"
-                type="number"
-                placeholder="Stock"
-                value={stock}
-                onChange={(e) => setStock(e.target.value)}
-            />
+                <div className="flex-1">
+                    <label className="block text-sm text-gray-600 mb-1">Precio</label>
+                    <input className="w-full p-2 border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-purple-400" type="number" placeholder="0" value={precio} onChange={(e) => setPrecio(e.target.value)} />
+                </div>
 
-            <input
-                className="w-full p-2 border border-gray-300 rounded mb-4"
-                type="text"
-                placeholder="URL de imagen"
-                value={imagenURL}
-                onChange={(e) => setImagenURL(e.target.value)}
-            />
+            </div>
 
-            <button type="submit" className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700">{productoEditar ? "Editar Producto" : "Crear Producto"}</button>
+            <div className="flex gap-4 mb-4">
+                <div className="flex-1">
+                    <label className="block text-sm text-gray-600 mb-1">Categoría</label>
+                    <input className="w-full p-2 border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-purple-400" type="text" placeholder="Selecciona una categoría" value={categoria} onChange={(e) => setCategoria(e.target.value)} />
+                </div>
+                <div className="flex-1">
+                    <label className="block text-sm text-gray-600 mb-1">URL de imagen</label>
+                    <input className="w-full p-2 border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-purple-400" type="text" placeholder="https://..." value={imagenURL} onChange={(e) => setImagenURL(e.target.value)} />
+                </div>
+            </div>
+
+            <div className="mb-6">
+                <label className="block text-sm text-gray-600 mb-1">Stock</label>
+                <input className="w-full p-2 border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-purple-400" type="number" placeholder="0" value={stock} onChange={(e) => setStock(e.target.value)} />
+            </div>
+
+            <button type="submit" className="w-full bg-purple-600 text-white p-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors">
+                {productoEditar ? "Guardar Cambios" : "Crear Producto"}
+            </button>
+
         </form>
     )
 }

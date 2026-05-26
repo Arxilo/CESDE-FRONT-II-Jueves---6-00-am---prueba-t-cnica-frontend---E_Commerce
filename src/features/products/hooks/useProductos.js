@@ -6,6 +6,12 @@ function useProductos() {
 
     const [productos, setProductos] = useState([]);
     const [productoEditar, setProductoEditar] = useState(null)
+    const [paginaActual, setPaginaActual] = useState(1)
+    const productosPorPagina = 6
+    const totalPaginas = Math.ceil(productos.length / productosPorPagina)
+    const inicio = (paginaActual - 1) * productosPorPagina
+    const productosPaginados = productos.slice(inicio, inicio + productosPorPagina)
+
 
     async function cargarProductos() {
         const data = await getProductos()
@@ -25,7 +31,7 @@ function useProductos() {
         cargarProductos()
     }, [])
 
-    return { productos, productoEditar, setProductoEditar, handleEliminar, cargarProductos }
+    return { productos, productosPaginados, productoEditar, setProductoEditar, handleEliminar, cargarProductos, paginaActual, setPaginaActual, totalPaginas }
 }
 
 export default useProductos
