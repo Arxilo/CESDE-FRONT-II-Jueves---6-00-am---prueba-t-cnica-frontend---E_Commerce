@@ -1,16 +1,14 @@
-function login( usuario , password) {
-    
+function login(usuario, password) {
+
     const usuarioAsignado = "Admin";
     const passwordAsignado = "1234";
 
     if (usuario == usuarioAsignado && password == passwordAsignado) {
-        
-        localStorage.setItem("session" , true);
-        console.log("correcto")
+
+        localStorage.setItem("session", true);
         return true;
-        
+
     } else {
-        console.log("incorrecto")
         return false;
     }
 
