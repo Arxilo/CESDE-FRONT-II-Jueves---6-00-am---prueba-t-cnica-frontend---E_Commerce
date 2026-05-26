@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { createProducto, updateProducto } from "../services/productService"
+import { mostrarError } from "../../../shared/utils/alerts";
 
 function useProductForm({ productoEditar, setProductoEditar, onProductoCreado }) {
 
@@ -9,8 +10,45 @@ function useProductForm({ productoEditar, setProductoEditar, onProductoCreado })
     const [stock, setStock] = useState("");
     const [imagenURL, setImagenURL] = useState("");
 
+    function limpiarFormulario() {
+        setNombre("")
+        setPrecio("")
+        setCategoria("")
+        setStock("")
+        setImagenURL("")
+    }
+
     async function handleSubmit(e) {
         e.preventDefault()
+        if (!nombre.trim()) {
+            mostrarError("El nombre no puede estar vacío")
+            return
+        }
+        if (!categoria.trim()) {
+            mostrarError("La categoría no puede estar vacía")
+            return
+        }
+        if (precio === "") {
+            mostrarError("El precio es obligatorio")
+            return
+        }
+        if (precio < 0) {
+            mostrarError("El precio no puede ser negativo")
+            return
+        }
+        if (stock === "") {
+            mostrarError("El stock es obligatorio")
+            return
+        }
+        if (stock < 0) {
+            mostrarError("El stock no puede ser negativo")
+            return
+        }
+        if (!imagenURL.trim()) {
+            mostrarError("La URL de imagen no puede estar vacía")
+            return
+        }
+
         const producto = { nombre, precio, categoria, stock, imagenURL }
         if (productoEditar) {
             await updateProducto(productoEditar.id, producto)
@@ -19,6 +57,7 @@ function useProductForm({ productoEditar, setProductoEditar, onProductoCreado })
             await createProducto(producto)
         }
         onProductoCreado()
+        limpiarFormulario()
     }
 
     useEffect(() => {

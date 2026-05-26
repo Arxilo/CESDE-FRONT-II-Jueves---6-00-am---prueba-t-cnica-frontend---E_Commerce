@@ -11,3 +11,11 @@ export async function confirmarEliminacion() {
     })
     return result.isConfirmed
 }
+
+export function mostrarError(mensaje) {
+    Swal.fire({
+        title: "Error",
+        text: mensaje,
+        icon: "error"
+    })
+}

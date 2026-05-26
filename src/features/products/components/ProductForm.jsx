@@ -41,7 +41,7 @@ function ProductForm({ onProductoCreado, productoEditar, setProductoEditar }) {
                 onChange={(e) => setImagenURL(e.target.value)}
             />
             <br />
-            <button type="submit" style={{ marginTop: "10px", backgroundColor: "green" }}>Crear producto</button>
+            <button type="submit" style={{ marginTop: "10px", backgroundColor: "green" }}>{productoEditar ? "Editar Producto" : "Crear Producto"}</button>
         </form>
     )
 }
