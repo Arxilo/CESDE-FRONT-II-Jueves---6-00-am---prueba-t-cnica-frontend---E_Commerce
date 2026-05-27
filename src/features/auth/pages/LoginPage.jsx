@@ -31,7 +31,7 @@ function LoginPage() {
         <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-900 via-purple-700 to-violet-600">
             <form
                 onSubmit={handleSubmit}
-                className="bg-white/10 backdrop-blur-md p-10 rounded-2xl border border-white/20 w-96"
+                className="bg-white/10 backdrop-blur-md p-10 rounded-2xl border border-white/20 w-full max-w-96 mx-4"
             >
                 <h1 className="text-3xl font-bold text-white mb-2">Dashy</h1>
                 <h2 className="text-xl font-bold text-white mb-1">Bienvenido de nuevo</h2>

@@ -10,7 +10,7 @@ function ProductForm({ onProductoCreado, productoEditar, setProductoEditar }) {
             <h2 className="text-lg font-bold text-gray-800 mb-6">{productoEditar ? "Editar Producto" : "Crear Producto"}</h2>
 
 
-            <div className="flex gap-4 mb-4">
+            <div className="flex flex-col md:flex-row gap-4 mb-4">
 
                 <div className="flex-1">
                     <label className="block text-sm text-gray-600 mb-1">Nombre</label>
@@ -24,7 +24,7 @@ function ProductForm({ onProductoCreado, productoEditar, setProductoEditar }) {
 
             </div>
 
-            <div className="flex gap-4 mb-4">
+            <div className="flex flex-col md:flex-row gap-4 mb-4">
                 <div className="flex-1">
                     <label className="block text-sm text-gray-600 mb-1">Categoría</label>
                     <input className="w-full p-2 border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-purple-400" type="text" placeholder="Selecciona una categoría" value={categoria} onChange={(e) => setCategoria(e.target.value)} />

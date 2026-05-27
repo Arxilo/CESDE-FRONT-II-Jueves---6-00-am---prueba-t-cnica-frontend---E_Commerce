@@ -1,6 +1,6 @@
 function Pagination({ paginaActual, totalPaginas, setPaginaActual, totalProductos }) {
     return (
-        <div className="flex justify-between items-center mt-14">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 mt-14">
             <p className="text-sm text-gray-500">
                 Mostrando {(paginaActual - 1) * 6 + 1} - {Math.min(paginaActual * 6, totalProductos)} de {totalProductos} productos
             </p>
